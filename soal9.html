@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id="demo"></div>
+<script type="text/javascript">
+	var data = ["Jakarta", "Aceh", "Malang", "Medan", "Bontang", "Jogja", "Jakarta", "Bandung", "Malang", "Solo", "Palembang", "Bandung"];
+	
+	var uniq = data
+	  .map((name) => {
+	    return {count: 1, name: name}
+	  })
+	  .reduce((a, b) => {
+	    a[b.name] = (a[b.name] || 0) + b.count
+	    return a
+	  }, {})
+
+	var sorted = Object.keys(uniq).sort((a, b) => uniq[a] < uniq[b])
+	document.write(sorted);
+	console.log(sorted)
+</script>
+</body>
+</html>
